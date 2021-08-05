@@ -1,0 +1,36 @@
+.modal {
+  inset: 0;
+  position: fixed;
+  background-color: rgba(0,0,0,.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  z-index: 1000;
+  transition: .3s;
+}
+
+.content {
+  position: relative;
+}
+
+.title {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-medium);
+  margin-bottom: 1.5rem;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 350px) {
+  .modal {
+    padding: 0 .5rem;
+  }
+}

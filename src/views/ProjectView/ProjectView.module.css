@@ -1,0 +1,47 @@
+
+.bg {
+  background-color: var(--primary-color-second);
+  padding-top: 3rem;
+  padding-bottom: 1.5rem;
+}
+
+.title {
+  font-size: var(--h2-font-size);
+  margin-bottom: .75rem;
+}
+
+.description {
+  margin-bottom: 1.5rem;
+}
+
+.title,
+.description {
+  color: #fff;
+}
+
+.img {
+  width: 232px;
+  justify-self: center;
+}
+
+@media screen and (min-width: 768px) {
+  .project {
+    text-align: center;
+  }
+
+  .bg {
+    background: none;
+  }
+
+  .container {
+    background-color: var(--primary-color-second);
+    border-radius: 1rem;
+    padding: 2rem 2.5rem 2rem;
+    grid-template-columns: 1fr max-content;
+    column-gap: 3rem;
+  }
+
+  .data {
+    padding-top: .8rem;
+  }
+}

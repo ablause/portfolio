@@ -1,0 +1,38 @@
+{
+  "private": true,
+  "license": "MIT",
+  "main": "./dist/server.js",
+  "ts-standard": {
+    "ignore": [
+      "dist/**",
+      "node_modules/**"
+    ]
+  },
+  "scripts": {
+    "start": "concurrently --names \"server,client\" \"node -r dotenv/config server.mjs\" \"node scripts/build.mjs --watch\"",
+    "build": "node scripts/build.mjs",
+    "serve": "node server.mjs"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "history": "^5.0.0",
+    "mime-types": "^2.1.32",
+    "nodemailer": "^6.6.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/history": "^4.7.9",
+    "@types/mime-types": "^2.1.0",
+    "@types/node": "^16.4.1",
+    "@types/nodemailer": "^6.4.4",
+    "@types/react": "^17.0.15",
+    "@types/react-dom": "^17.0.9",
+    "concurrently": "^6.2.0",
+    "dotenv": "^10.0.0",
+    "esbuild": "^0.12.17",
+    "esbuild-css-modules-plugin": "^1.0.6",
+    "ts-standard": "^10.0.0",
+    "typescript": "^4.2.4"
+  }
+}

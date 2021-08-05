@@ -1,0 +1,63 @@
+
+.container {
+  row-gap: 3rem;
+}
+
+.information {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-right: .75rem;
+}
+
+.title {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-medium);
+}
+
+.subtitle {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+
+.content {
+  background-color: var(--input-color);
+  border-radius: .5rem;
+  padding: .75rem 1rem .25rem;
+}
+
+.label {
+  font-size: var(--smaller-font-size);
+  color: var(--title-color);
+}
+
+.input {
+  width: 100%;
+  background-color: var(--input-color);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  border: none;
+  outline: none;
+  padding: .25rem .5rem .5rem 0;
+}
+
+@media screen and (min-width: 568px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .form {
+    width: 460px;
+  }
+
+  .input {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

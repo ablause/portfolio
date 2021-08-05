@@ -1,0 +1,32 @@
+
+.section {
+  padding: 2rem 0 4rem;
+}
+
+.title {
+  font-size: var(--h1-font-size);
+}
+
+.subtitle {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: 3rem;
+}
+
+.title, .subtitle {
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .section {
+    padding: 6rem 0 2rem;
+  }
+
+  .subtitle {
+    margin-bottom: 4rem;
+  }
+}

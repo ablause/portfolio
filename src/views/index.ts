@@ -1,0 +1,6 @@
+export { default as HomeView } from './HomeView'
+export { default as AboutView } from './AboutView'
+export { default as SkillsView } from './SkillsView'
+export { default as PortfolioView } from './PortfolioView'
+export { default as ProjectView } from './ProjectView'
+export { default as ContactView } from './ContactView'
