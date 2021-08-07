@@ -5,6 +5,7 @@
       "dom.iterable",
       "esnext"
     ],
+    "types": ["vite/client"],
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "composite": true,
