@@ -36,22 +36,23 @@ server.get('*', (_, res) => {
   res.sendFile(path.resolve(publicRoot, 'index.html'))
 })
 
-server.post('/api/contact', (req, res) => {
-  const { name, email, message } = req.body
+server.post('/api/contact', async (req, res) => {
+  try {
+    const { name, email, message } = req.body
 
-  const html = `
+    const html = `
                 <p>Name: ${name}</p>
                 <p>Email: ${email}</p>
                 <p>Message:\n ${message}</p>
                 `
 
-  smtp.sendMail({ from: email, html, ...mailOptions }, (err) => {
-    if (err) {
-      res.status().json({ name: err.name, message: err.message })
-    }
+    await smtp.sendMail({ from: email, html, ...mailOptions })
 
-    res.status(200)
-  })
+    res.status(200).json({ message: 'Success' })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: 'Internal Error' })
+  }
 })
 
 server.listen(Number(process.env.PORT), () => {
