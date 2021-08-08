@@ -28,7 +28,7 @@ const ContactView = forwardRef<HTMLElement, ContactViewProps>(({ content }, ref)
 
     setStatus(ContactStatus.Sending)
 
-    const response = await fetch('https://localhost/api/contact', {
+    const response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8'
@@ -56,7 +56,7 @@ const ContactView = forwardRef<HTMLElement, ContactViewProps>(({ content }, ref)
 
             <div>
               <h3 className={styles.title}>Call Me</h3>
-              <span className={styles.subtitle}>+32470385826</span>
+              <a className={styles.subtitle} href='tel:+32470385826'>+32470385826</a>
             </div>
           </div>
           <div className={styles.information}>
@@ -64,7 +64,7 @@ const ContactView = forwardRef<HTMLElement, ContactViewProps>(({ content }, ref)
 
             <div>
               <h3 className={styles.title}>Email</h3>
-              <span className={styles.subtitle}>contact@ablause.dev</span>
+              <a className={styles.subtitle} href='mailto:contact@ablause.dev'>contact@ablause.dev</a>
             </div>
           </div>
           <div className={styles.information}>

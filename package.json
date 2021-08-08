@@ -19,14 +19,12 @@
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "history": "^5.0.0",
-    "mime-types": "^2.1.32",
     "nodemailer": "^6.6.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@types/history": "^4.7.9",
-    "@types/mime-types": "^2.1.0",
     "@types/node": "^16.4.1",
     "@types/nodemailer": "^6.4.4",
     "@types/react": "^17.0.15",

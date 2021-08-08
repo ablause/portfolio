@@ -11,7 +11,7 @@ export interface AboutViewProps {
 const AboutView = forwardRef<HTMLElement, AboutViewProps>(({ content }, ref) => (
   <Section id='about' title='About Me' subtitle='My introduction' ref={ref}>
     <div className={classNames(styles.container, 'container grid')}>
-      <img className={styles.img} src='assets/person-coding.svg' alt='about-me' />
+      <img className={styles.img} width={250} height={120} src='assets/person-coding.svg' alt='about-me' />
 
       <div className={styles.data}>
         <p className={styles.description}>
