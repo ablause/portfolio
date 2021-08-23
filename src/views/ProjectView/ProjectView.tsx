@@ -4,11 +4,9 @@ import classNames from 'classnames'
 import styles from './ProjectView.module.css'
 import { Section } from '../../components'
 
-export interface ProjectViewProps {
-  content: any
-};
+// export interface ProjectViewProps {};
 
-const ProjectView = forwardRef<HTMLElement, ProjectViewProps>(({ content }, ref) => (
+const ProjectView = forwardRef<HTMLElement>((_, ref) => (
   <Section ref={ref} id='project' center>
     <div className={styles.bg}>
       <div className={classNames(styles.container, 'container grid')}>

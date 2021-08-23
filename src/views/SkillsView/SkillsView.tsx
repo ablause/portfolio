@@ -4,9 +4,7 @@ import classNames from 'classnames'
 import styles from './SkillsView.module.css'
 import { Section, Modal } from '../../components'
 
-interface SkillsViewProps {
-  content: any
-}
+// interface SkillsViewProps {}
 
 const skills = [
   {
@@ -43,7 +41,7 @@ const skills = [
   }
 ]
 
-const SkillsView = forwardRef<HTMLElement, SkillsViewProps>(({ content }, ref) => {
+const SkillsView = forwardRef<HTMLElement>((_, ref) => {
   const [modalKey, setModalKey] = useState<number | null>(null)
 
   const toggleModal = (key?: number): void => setModalKey(key !== undefined ? key : null)

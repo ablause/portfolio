@@ -1,30 +1,24 @@
-import React, { ChangeEventHandler, FormEventHandler, forwardRef, useState } from 'react'
+import React, { ChangeEventHandler, FormEventHandler, forwardRef, useCallback, useState } from 'react'
 import classNames from 'classnames'
 
 import styles from './ContactView.module.css'
 import { Section } from '../../components'
 
-export interface ContactViewProps {
-  content: any
-};
+// export interface ContactViewProps {};
 
 enum ContactStatus {
   Writing = 'Send Message',
   Sending = 'Sending...',
-  Sended = 'Sended !',
-  Error = 'Error !'
+  Sended = 'Message is sended !',
+  Error = 'Error ! Please contact by contact@ablause.dev'
 }
 
-const ContactView = forwardRef<HTMLElement, ContactViewProps>(({ content }, ref) => {
+const ContactView = forwardRef<HTMLElement>((_, ref) => {
   const [status, setStatus] = useState<ContactStatus>(ContactStatus.Writing)
-  const [values, setValues] = useState<{[key: string]: string}>({})
+  const [values, setValues] = useState<Record<string, string> | null>(null)
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
-
-    if (status === ContactStatus.Sended) {
-      setStatus(ContactStatus.Writing)
-    }
 
     setStatus(ContactStatus.Sending)
 
@@ -38,14 +32,28 @@ const ContactView = forwardRef<HTMLElement, ContactViewProps>(({ content }, ref)
 
     if (response.status === 200) {
       setStatus(ContactStatus.Sended)
+      setValues(null)
     } else {
       setStatus(ContactStatus.Error)
     }
   }
 
   const handleChangeInput: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
+    if (status === ContactStatus.Sended) {
+      setStatus(ContactStatus.Writing)
+    }
+
     setValues((prevState) => ({ ...prevState, [e.target.name]: e.target.value }))
   }
+
+  const inputProps = useCallback((name: string) => ({
+    name,
+    id: name,
+    onChange: handleChangeInput,
+    className: styles.input,
+    value: values?.[name] ?? '',
+    require: true
+  }), [values])
 
   return (
     <Section ref={ref} id='contact' title='Contact Me' subtitle='Get in touch'>
@@ -81,16 +89,16 @@ const ContactView = forwardRef<HTMLElement, ContactViewProps>(({ content }, ref)
           <div className={classNames(styles.inputs, 'grid')}>
             <div className={styles.content}>
               <label htmlFor='name' className={styles.label}>Name</label>
-              <input id='name' name='name' type='text' onChange={handleChangeInput} className={styles.input} required />
+              <input type='text' {...inputProps('name')} />
             </div>
             <div className={styles.content}>
               <label htmlFor='email' className={styles.label}>Email</label>
-              <input id='email' name='email' type='email' onChange={handleChangeInput} className={styles.input} required />
+              <input type='email' {...inputProps('email')} />
             </div>
           </div>
           <div className={styles.content}>
             <label htmlFor='message' className={styles.label}>Message</label>
-            <textarea id='message' name='message' onChange={handleChangeInput} cols={0} rows={7} className={styles.input} required />
+            <textarea {...inputProps('message')} cols={0} rows={7} />
           </div>
 
           <div>

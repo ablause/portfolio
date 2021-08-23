@@ -4,11 +4,9 @@ import classNames from 'classnames'
 import { Section } from '../../components'
 import styles from './AboutView.module.css'
 
-export interface AboutViewProps {
-  content: any
-}
+// export interface AboutViewProps {}
 
-const AboutView = forwardRef<HTMLElement, AboutViewProps>(({ content }, ref) => (
+const AboutView = forwardRef<HTMLElement>((_, ref) => (
   <Section id='about' title='About Me' subtitle='My introduction' ref={ref}>
     <div className={classNames(styles.container, 'container grid')}>
       <img className={styles.img} width={250} height={120} src='assets/person-coding.svg' alt='about-me' />

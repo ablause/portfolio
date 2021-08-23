@@ -29,6 +29,11 @@ server.use((_, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', process.env.ORIGIN)
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PATCH')
   res.setHeader('Access-Control-Allow-Credentials', false)
+
+  res.setTimeout(60000, () => {
+    res.status(408).send('Response processing timed out.')
+  })
+
   next()
 })
 

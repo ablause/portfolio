@@ -4,11 +4,9 @@ import classNames from 'classnames'
 import { Section } from '../../components'
 import styles from './HomeView.module.css'
 
-export interface HomeViewProps {
-  content: any
-}
+// export interface HomeViewProps {}
 
-const HomeView = forwardRef<HTMLElement, HomeViewProps>(({ content }, ref) => (
+const HomeView = forwardRef<HTMLElement>((_, ref) => (
   <Section id='home' ref={ref}>
     <div className={classNames(styles.container, 'container grid')}>
       <div className={classNames(styles.content, 'grid')}>
@@ -36,7 +34,7 @@ const HomeView = forwardRef<HTMLElement, HomeViewProps>(({ content }, ref) => (
         </div>
 
         <div className={styles.data}>
-          <h1 className={styles.title}>Hi, I'am Alexandre</h1>
+          <h1 className={styles.title}>Hi, I'm Alexandre</h1>
           <h3 className={styles.subTitle}>Fullstack Developer</h3>
           <p className={styles.description}>Young full-stack JS developer, self-taught and passionate for 7 years. Able to develop web applications
           </p>

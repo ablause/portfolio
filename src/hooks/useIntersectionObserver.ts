@@ -15,8 +15,6 @@ function useIntersectionObserver (callback: IntersectionObserverCallback, option
       observer.current.disconnect()
     }
 
-    console.log('init IntersectionObserver')
-
     observer.current = new IntersectionObserver(callback, options)
 
     elements.current.forEach((element) => observer.current?.observe(element))

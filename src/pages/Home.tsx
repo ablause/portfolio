@@ -20,12 +20,12 @@ const Home: React.FC = () => {
 
   return (
     <Layout>
-      {useMemo(() =>
+      {
         [HomeView, AboutView, SkillsView, PortfolioView, ProjectView, ContactView]
           .map((View, key) => {
-            return <View key={key} ref={observeRef} content={{}} />
+            return <View key={key} ref={observeRef} />
           })
-      , [observeRef])}
+      }
     </Layout>
   )
 }
