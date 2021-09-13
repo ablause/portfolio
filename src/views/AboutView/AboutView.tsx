@@ -44,9 +44,9 @@ const AboutView = forwardRef<HTMLElement>((_, ref) => (
         </div>
 
         <div className={styles.buttons}>
-          {/* <a className='button button--flex' download href='assets/documents/cv.pdf'>
+          <a className='button button--flex' download href='assets/documents/alexandre-blause-cv.pdf'>
             Download CV <i className='uil uil-download-alt button__icon' />
-          </a> */}
+          </a>
         </div>
       </div>
     </div>
